@@ -138,8 +138,8 @@ async def private_receive_handler(c: Client, m: Message):
 
 @StreamBot.on_message(filters.channel & ~filters.group & (filters.document | filters.video | filters.photo)  & ~filters.forwarded, group=-1)
 async def channel_receive_handler(bot, broadcast):
-    if int(broadcast.chat.id) in Var.BAN_CHNL:
-        print("chat trying to get straming link is found in BAN_CHNL,so im not going to give stram link")
+    if int(broadcast.chat.id) in Var.BANNED_CHANNELS:
+        print("chat trying to get straming link is found in Banned Channel,so im not going to give stram link")
         return
     ban_chk = await db.is_banned(int(broadcast.chat.id))
     if (int(broadcast.chat.id) in Var.BANNED_CHANNELS) or (ban_chk == True):

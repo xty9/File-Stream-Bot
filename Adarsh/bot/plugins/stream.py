@@ -120,8 +120,9 @@ async def private_receive_handler(c: Client, m: Message):
                 [InlineKeyboardButton('🧿 ᴡᴀᴛᴄʜ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ 🖥', web_app=WebAppInfo(url=stream))]
             ])
         )
-        await m.delete()
+
         await asyncio.sleep(43200)
+        await m.delete()
         await log_msg.delete()
         await a.delete()
         await k.delete()

@@ -234,7 +234,7 @@ async def cb_handler(client, query):
             [
                 [InlineKeyboardButton("👨‍💻  ʀᴇᴘᴏ", url="https://github.com/CodeXBots/File-Stream-Bot"),
                  InlineKeyboardButton("💥  ᴅᴏɴᴀᴛᴇ", callback_data="donate")],
-                [InlineKeyboardButton("✗ ᴄʟᴏsᴇ ✗", callback_data="close")]
+                [InlineKeyboardButton("ʜᴏᴍᴇ", callback_data="start")]
             ]
         )
         )

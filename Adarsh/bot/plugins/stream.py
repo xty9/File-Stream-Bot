@@ -82,7 +82,7 @@ async def private_receive_handler(c: Client, m: Message):
         return await m.reply(Var.BAN_ALERT)
 
     try:  # This is the outer try block
-        log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        log_msg = await m.copy(chat_id=Var.BIN_CHANNEL)
         stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
@@ -121,11 +121,18 @@ async def private_receive_handler(c: Client, m: Message):
             ])
         )
 
-        await asyncio.sleep(43200)
-        await m.delete()
-        await log_msg.delete()
-        await a.delete()
-        await k.delete()
+        await m.delete()  # Delete the original message after processing
+
+        # Wait for 6 hours (21600 seconds)
+        await asyncio.sleep(21600)  # Sleep for 6 hours
+
+        # After 6 hours, delete `log_msg`, `a`, and `k`
+        try:
+            await log_msg.delete()
+            await a.delete()
+            await k.delete()
+        except Exception as e:
+            print(f"Error during deletion: {e}")
 
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")

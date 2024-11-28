@@ -16,21 +16,21 @@ def is_enabled(value, default):
 
 class Var(object):
     MULTI_CLIENT = False
-    API_ID = int(getenv('API_ID', ''))
-    API_HASH = str(getenv('API_HASH', ''))
+    API_ID = int(getenv('API_ID', '28645883'))
+    API_HASH = str(getenv('API_HASH', 'e2d5ad008a5245627ac130ac63e2ecfd'))
     PICS = (environ.get('PICS', 'https://envs.sh/jUp.jpg')).split()
-    BOT_TOKEN = str(getenv('BOT_TOKEN', ''))
-    name = str(getenv('name', 'linkstreamrobot'))
+    BOT_TOKEN = str(getenv('BOT_TOKEN', '7192200134:AAEU7aW_SzubL_ZIVP6txlK59xwlj4tbtfM'))
+    name = str(getenv('name', 'botxstreambot'))
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
     WORKERS = int(getenv('WORKERS', '4'))
-    BIN_CHANNEL = int(getenv('BIN_CHANNEL', ''))
+    BIN_CHANNEL = int(getenv('BIN_CHANNEL', '-1002267274906'))
     PORT = int(getenv('PORT', 8080))
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-    OWNER_ID = [int(x) for x in os.environ.get("OWNER_ID", "").split()]
+    OWNER_ID = [int(x) for x in os.environ.get("OWNER_ID", "813126730").split()]
     NO_PORT = bool(getenv('NO_PORT', False))
     APP_NAME = None
-    OWNER_USERNAME = str(getenv('OWNER_USERNAME', 'CodeXBro'))
+    OWNER_USERNAME = str(getenv('OWNER_USERNAME', 'jvx776'))
     if 'DYNO' in environ:
         ON_HEROKU = True
         APP_NAME = str(getenv('APP_NAME'))
